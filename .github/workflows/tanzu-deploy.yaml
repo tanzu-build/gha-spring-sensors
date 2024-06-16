@@ -32,6 +32,6 @@ jobs:
         uses: cpage-pivotal/tanzu-deploy-action@f7acf4cb27b3ea71dfdef33ce2901639b61be079
         with:
           tanzu_api_token: ${{ secrets.TanzuApiToken }}
-          container_registry: tanzuplatform.azurecr.io/build/{{name}}
+          container_registry: tanzuplatform.azurecr.io/build/ci-spring-sensors
           project: AMER-West
           space: corby-space
