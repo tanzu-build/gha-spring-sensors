@@ -29,7 +29,7 @@ jobs:
           username: ${{ secrets.RepositoryUsername }}
           password: ${{ secrets.RepositoryPassword }}
       - name: Login to Tanzu Platform
-        uses: cpage-pivotal/tanzu-deploy-action@f9e442ba0170948d14874dae8be3cc1a29d2468c
+        uses: cpage-pivotal/tanzu-deploy-action@527f89b3ca6274aef59df93dd408e268f468fd8f
         with:
           tanzu_api_token: ${{ secrets.TanzuApiToken }}
       - name: Configure Build Plan
