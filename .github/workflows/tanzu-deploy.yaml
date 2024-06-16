@@ -1,0 +1,32 @@
+name: tanzu-deploy-workflow
+on: [push]
+jobs:
+  tanzu_deploy_job:
+    runs-on: ubuntu-latest
+    name: Deploy to Tanzu Platform on Commit
+
+    # Run inside this container
+    container:
+      image: tanzuplatform.azurecr.io/tanzu/tanzu-client
+      options: --privileged
+
+    steps:
+#      - name: Tanzu Deploy Step
+#        id: tanzu-deploy
+#        uses: cpage-pivotal/tanzu-deploy-action
+#        with:
+#          tanzu_api_token: ${{ secrets.TanzuApiToken }}
+#          container_repository: tanzuplatform.azurecr.io
+#          container_repository_username: ${{ secrets.RepositoryUsername }}
+#          container_repository_password: ${{ secrets.RepositoryPassword }}
+#          container_registry: tanzuplatform.azurecr.io/build/{name}
+      - name: Login to Tanzu Platform
+        run: TANZU_API_TOKEN=${{ secrets.TanzuApiToken }} tanzu login
+      - name: Login to Container Registry
+        run: docker login ${{ secrets.RepositoryUsername }} -u ${{ secrets.RepositoryUsername }} -p ${{ secrets.RepositoryPassword }}
+      - name: Configure Build Plan
+        run: tanzu build config --build-plan-source-type=ucp --containerapp-registry tanzuplatform.azurecr.io/build/{name}
+      - name: Set project and space context
+        run: tanzu project use AMER-West && tanzu space use corby-space
+
+
