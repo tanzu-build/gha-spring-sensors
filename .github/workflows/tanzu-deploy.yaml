@@ -3,6 +3,7 @@ on: [push]
 jobs:
   tanzu_deploy_job:
     runs-on: ubuntu-latest
+    permissions: write-all
     name: Deploy to Tanzu Platform on Commit
     steps:
       - name: Check out the repo
