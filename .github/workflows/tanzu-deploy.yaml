@@ -15,10 +15,10 @@ jobs:
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
       - name: Deploy application to Tanzu Platform
-        uses: cpage-pivotal/tanzu-deploy-action@v1.3
+        uses: cpage-pivotal/tanzu-deploy-action@custom
         with:
           tanzu_api_token: ${{ secrets.TanzuApiToken }}
           container_registry: ghcr.io/${{ github.actor }}/ci-spring-sensors
           buildPlanSource: custom-build-plan
-          project: Energy-Transfer
-          space: alpha-space
+          project: workshop01
+          space: corby-space
