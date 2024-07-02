@@ -52,6 +52,7 @@ public class DemoController {
         return new HashMap<>();
     }
 
+    // Comment
     private static final String REPLACEMENT_BANNER_TEXT="Spring Sensors";
 
     @RequestMapping("/refresh")
