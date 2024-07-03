@@ -21,4 +21,4 @@ jobs:
           container_registry: ghcr.io/${{ github.actor }}/ci-spring-sensors
           buildPlanSource: custom-build-plan
           project: AMER-West
-          space: humana-space
+          space: john-space
