@@ -19,6 +19,6 @@ jobs:
         with:
           tanzu_api_token: ${{ secrets.TanzuApiToken }}
           container_registry: ghcr.io/${{ github.actor }}/gha-spring-sensors
-          buildPlanSource: custom-build-plan
+          buildPlanSource: simple.tanzu.vmware.com
           project: ne-growth
           space: jay
