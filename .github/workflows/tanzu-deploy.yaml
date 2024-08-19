@@ -11,14 +11,14 @@ jobs:
       - name: Log in to Container Registry
         uses: docker/login-action@v3
         with:
-          registry: ghcr.io
+          registry: harbor.kirkware.net
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
       - name: Deploy application to Tanzu Platform
         uses: cpage-pivotal/tanzu-deploy-action@test
         with:
           tanzu_api_token: ${{ secrets.TanzuApiToken }}
-          container_registry: ghcr.io/${{ github.actor }}/ci-spring-sensors
+          container_registry: harbor.kirware.net/${{ github.actor }}/gha-build/gha-spring-sensors
           buildPlanSource: custom-build-plan
-          project: AMER-West
-          space: corby-space
+          project: ne-growth
+          space: jay
