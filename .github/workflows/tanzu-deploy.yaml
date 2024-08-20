@@ -11,14 +11,14 @@ jobs:
       - name: Log in to Container Registry
         uses: docker/login-action@v3
         with:
-          registry: ${{ env.Registry }}
-          username: ${{ env.HarborUser }}
+          registry: ${{ var.Registry }}
+          username: ${{ var.HarborUser }}
           password: ${{ secrets.HarborPassword }}
       - name: Deploy application to Tanzu Platform
         uses: cpage-pivotal/tanzu-deploy-action@main
         with:
           tanzu_api_token: ${{ secrets.TanzuApiToken }}
-          container_registry: ${{ env.Registry }}/${{ env.HarborUser }}/gha-build/gha-spring-sensors
+          container_registry: ${{ var.Registry }}/${{ var.HarborUser }}/gha-build/gha-spring-sensors
           buildPlanSource: simple.tanzu.vmware.com
           project: ne-growth
           space: jay
