@@ -15,7 +15,6 @@ jobs:
           username: ${{ secrets.ECR_ACCESS_KEY_ID }}
           password: ${{ secrets.ECR_SECRET_ACCESS_KEY }}
         env:
-          AWS_REGION: us-east-1
           AWS_ACCOUNT_IDS: "420760610216"
 
       # - name: Deploy application to Tanzu Platform
