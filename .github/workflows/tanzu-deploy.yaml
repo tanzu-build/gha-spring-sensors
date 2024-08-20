@@ -1,5 +1,5 @@
 name: tanzu-deploy-workflow
-on: [push]
+on: []
 jobs:
   tanzu_deploy_job:
     runs-on: ubuntu-latest
@@ -13,7 +13,7 @@ jobs:
         with:
           registry: harbor.kirkware.net
           username: ${{ secrets.HARBOR_USERNAME }}
-          password: ${{ secrets.HARBORPASSWORD }}
+          password: ${{ secrets.HARBOR_PASSWORD }}
       - name: Deploy application to Tanzu Platform
         uses: cpage-pivotal/tanzu-deploy-action@main
         with:
