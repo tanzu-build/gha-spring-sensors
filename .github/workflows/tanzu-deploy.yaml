@@ -18,7 +18,7 @@ jobs:
         uses: cpage-pivotal/tanzu-deploy-action@main
         with:
           tanzu_api_token: ${{ secrets.TanzuApiToken }}
-          container_registry: harbor.kirkware.net/${{ env.HARBORUSER }}/gha-build/gha-spring-sensors
+          container_registry: harbor.kirkware.net/${{ secrets.HARBOR_USERNAME }}/gha-build/gha-spring-sensors
           buildPlanSource: simple.tanzu.vmware.com
           project: ne-growth
           space: jay
