@@ -14,11 +14,11 @@ jobs:
           registry: harbor.kirkware.net
           username: ${{ secrets.HARBOR_USERNAME }}
           password: ${{ secrets.HARBOR_PASSWORD }}
-      - name: Deploy application to Tanzu Platform
-        uses: cpage-pivotal/tanzu-deploy-action@main
-        with:
-          tanzu_api_token: ${{ secrets.TanzuApiToken }}
-          container_registry: harbor.kirkware.net/gha-build/gha-spring-sensors
-          buildPlanSource: simple.tanzu.vmware.com
-          project: ne-growth
-          space: jay
+      # - name: Deploy application to Tanzu Platform
+      #   uses: cpage-pivotal/tanzu-deploy-action@main
+      #   with:
+      #     tanzu_api_token: ${{ secrets.TanzuApiToken }}
+      #     container_registry: harbor.kirkware.net/gha-build/gha-spring-sensors
+      #     buildPlanSource: simple.tanzu.vmware.com
+      #     project: ne-growth
+      #     space: jay
