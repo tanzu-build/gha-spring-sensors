@@ -8,15 +8,26 @@ jobs:
     steps:
       - name: Check out the repo
         uses: actions/checkout@v4
-      - name: Log in to Public ECR
-        uses: docker/login-action@v3
+      # - name: Log in to Public ECR
+      #   uses: docker/login-action@v3
+      #   with:
+      #     registry: 420760610216.dkr.ecr.us-east-1.amazonaws.com
+      #     username: ${{ secrets.ECR_ACCESS_KEY_ID }}
+      #     password: ${{ secrets.ECR_SECRET_ACCESS_KEY }}
+      #   env:
+      #     AWS_ACCOUNT_IDS: "420760610216"
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v4
         with:
-          registry: 420760610216.dkr.ecr.us-east-1.amazonaws.com
-          username: ${{ secrets.ECR_ACCESS_KEY_ID }}
-          password: ${{ secrets.ECR_SECRET_ACCESS_KEY }}
-        env:
-          AWS_ACCOUNT_IDS: "420760610216"
-
+          aws-access-key-id: ${{ secrets.ECR_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.ECR_SECRET_ACCESS_KEY }}
+          aws-region: us-east-1
+          role-to-assume: arn:aws:iam::420760610216:role/svc.gjay-poweruser
+      #    role-to-assume: ${{ secrets.AWS_ROLE_TO_ASSUME }}
+      #    role-external-id: ${{ secrets.AWS_ROLE_EXTERNAL_ID }}
+      #    role-duration-seconds: 1200
+      #    role-session-name: MySessionName
+      
       # - name: Deploy application to Tanzu Platform
       #   uses: cpage-pivotal/tanzu-deploy-action@main
       #   with:
@@ -25,3 +36,5 @@ jobs:
       #     buildPlanSource: simple.tanzu.vmware.com
       #     project: ne-growth
       #     space: jay
+
+      # "arn:aws:iam::757561373361:user/svc.gjay-poweruser"
