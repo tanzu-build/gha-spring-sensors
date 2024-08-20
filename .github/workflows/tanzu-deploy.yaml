@@ -11,14 +11,16 @@ jobs:
       - name: Log in to Container Registry
         uses: docker/login-action@v3
         with:
-          registry: harbor.kirkware.net
-          username: ${{ secrets.HARBOR_USERNAME }}
-          password: ${{ secrets.HARBOR_PASSWORD }}
+          registry: public.ecr.aws
+          username: ${{ secrets.ECR_ACCESS_KEY_ID }}
+          password: ${{ secrets.ECR_SECRET_ACCESS_KEY }}
+        env:
+          AWS_REGION: us-east-1
       # - name: Deploy application to Tanzu Platform
       #   uses: cpage-pivotal/tanzu-deploy-action@main
       #   with:
       #     tanzu_api_token: ${{ secrets.TanzuApiToken }}
-      #     container_registry: harbor.kirkware.net/gha-build/gha-spring-sensors
+      #     container_registry: public.ecr.aws/u6w4s2c8/gha-build/gha-spring-sensors
       #     buildPlanSource: simple.tanzu.vmware.com
       #     project: ne-growth
       #     space: jay
