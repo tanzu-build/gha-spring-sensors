@@ -1,5 +1,5 @@
 name: tanzu-deploy-workflow
-on: []
+on: [push]
 jobs:
   tanzu_deploy_job:
     runs-on: ubuntu-latest
