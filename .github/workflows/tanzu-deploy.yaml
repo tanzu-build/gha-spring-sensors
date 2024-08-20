@@ -6,37 +6,38 @@ jobs:
     permissions: write-all
     name: Deploy to Tanzu Platform on Commit
     steps:
-      - name: Check out the repo
-        uses: actions/checkout@v4
-      # - name: Log in to Public ECR
-      #   uses: docker/login-action@v3
-      #   with:
-      #     registry: 420760610216.dkr.ecr.us-east-1.amazonaws.com
-      #     username: ${{ secrets.ECR_ACCESS_KEY_ID }}
-      #     password: ${{ secrets.ECR_SECRET_ACCESS_KEY }}
-      #   env:
-      #     AWS_ACCOUNT_IDS: "420760610216"
+      # - name: Check out the repo
+      #   uses: actions/checkout@v4
+      # # - name: Log in to Public ECR
+      # #   uses: docker/login-action@v3
+      # #   with:
+      # #     registry: 420760610216.dkr.ecr.us-east-1.amazonaws.com
+      # #     username: ${{ secrets.ECR_ACCESS_KEY_ID }}
+      # #     password: ${{ secrets.ECR_SECRET_ACCESS_KEY }}
+      # #   env:
+      # #     AWS_ACCOUNT_IDS: "420760610216"
       - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v4
         with:
+          role-skip-session-tagging: true
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           role-to-assume: ${{ secrets.AWS_ASSUME_ROLE_ARN }}
           role-duration-seconds: 1200
           aws-region: us-east-1
 
-      #    role-to-assume: ${{ secrets.AWS_ROLE_TO_ASSUME }}
-      #    role-external-id: ${{ secrets.AWS_ROLE_EXTERNAL_ID }}
-      #    role-duration-seconds: 1200
-      #    role-session-name: MySessionName
+      # #    role-to-assume: ${{ secrets.AWS_ROLE_TO_ASSUME }}
+      # #    role-external-id: ${{ secrets.AWS_ROLE_EXTERNAL_ID }}
+      # #    role-duration-seconds: 1200
+      # #    role-session-name: MySessionName
       
-      # - name: Deploy application to Tanzu Platform
-      #   uses: cpage-pivotal/tanzu-deploy-action@main
-      #   with:
-      #     tanzu_api_token: ${{ secrets.TanzuApiToken }}
-      #     container_registry: public.ecr.aws/u6w4s2c8/gha-build/gha-spring-sensors
-      #     buildPlanSource: simple.tanzu.vmware.com
-      #     project: ne-growth
-      #     space: jay
+      # # - name: Deploy application to Tanzu Platform
+      # #   uses: cpage-pivotal/tanzu-deploy-action@main
+      # #   with:
+      # #     tanzu_api_token: ${{ secrets.TanzuApiToken }}
+      # #     container_registry: public.ecr.aws/u6w4s2c8/gha-build/gha-spring-sensors
+      # #     buildPlanSource: simple.tanzu.vmware.com
+      # #     project: ne-growth
+      # #     space: jay
 
-      # "arn:aws:iam::757561373361:user/svc.gjay-poweruser"
+      # # "arn:aws:iam::757561373361:user/svc.gjay-poweruser"
