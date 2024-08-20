@@ -35,19 +35,11 @@ jobs:
       #     REPOSITORY: my-ecr-public-repo
       #     IMAGE_TAG: ${{ github.sha }}
 
-
-      # #    role-to-assume: ${{ secrets.AWS_ROLE_TO_ASSUME }}
-      # #    role-external-id: ${{ secrets.AWS_ROLE_EXTERNAL_ID }}
-      # #    role-duration-seconds: 1200
-      # #    role-session-name: MySessionName
-      
-      # # - name: Deploy application to Tanzu Platform
-      # #   uses: cpage-pivotal/tanzu-deploy-action@main
-      # #   with:
-      # #     tanzu_api_token: ${{ secrets.TanzuApiToken }}
-      # #     container_registry: public.ecr.aws/u6w4s2c8/gha-build/gha-spring-sensors
-      # #     buildPlanSource: simple.tanzu.vmware.com
-      # #     project: ne-growth
-      # #     space: jay
-
-      # # "arn:aws:iam::757561373361:user/svc.gjay-poweruser"
+      - name: Deploy application to Tanzu Platform
+        uses: cpage-pivotal/tanzu-deploy-action@main
+        with:
+          tanzu_api_token: ${{ secrets.TanzuApiToken }}
+          container_registry: public.ecr.aws/u6w4s2c8/gha-build/gha-spring-sensors
+          buildPlanSource: simple.tanzu.vmware.com
+          project: ne-growth
+          space: jay
