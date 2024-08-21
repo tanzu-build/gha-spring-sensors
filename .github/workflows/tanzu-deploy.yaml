@@ -26,7 +26,7 @@ jobs:
           registry-type: public
 
       - name: Deploy application to Tanzu Platform
-        uses: cpage-pivotal/tanzu-deploy-action@main
+        uses: cpage-pivotal/tanzu-deploy-action@v1.4
         with:
           tanzu_api_token: ${{ secrets.TanzuApiToken }}
           container_registry: public.ecr.aws/u6w4s2c8/gha-build/gha-spring-sensors
