@@ -26,7 +26,7 @@ jobs:
           registry-type: public
 
       - name: Build with Tanzu build cli
-        uses: tanzu-build/tanzu-build-action@v1.4
+        uses: tanzu-build/tanzu-build-action@v1.5
         with:
           container_registry: public.ecr.aws/u6w4s2c8/gha-build/gha-spring-sensors
           buildPlanSource: './platform-config.yaml'
