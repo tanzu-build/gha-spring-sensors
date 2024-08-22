@@ -1,10 +1,10 @@
-name: tanzu-deploy-workflow
+name: tanzu-build-workflow
 on: [push]
 jobs:
   tanzu_deploy_job:
     runs-on: ubuntu-latest
     permissions: write-all
-    name: Deploy to Tanzu Platform on Commit
+    name: Build with tanzu build cli on Commit
     steps:
       - name: Check out the repo
         uses: actions/checkout@v4
@@ -25,11 +25,8 @@ jobs:
         with:
           registry-type: public
 
-      - name: Deploy application to Tanzu Platform
-        uses: cpage-pivotal/tanzu-deploy-action@v1.4
+      - name: Build with Tanzu build cli
+        uses: tanzu-build/tanzu-build-action@v1.4
         with:
-          tanzu_api_token: ${{ secrets.TanzuApiToken }}
           container_registry: public.ecr.aws/u6w4s2c8/gha-build/gha-spring-sensors
-          buildPlanSource: simple.tanzu.vmware.com
-          project: ne-growth
-          space: gabry
+          buildPlanSource: './platform-config.yaml'
