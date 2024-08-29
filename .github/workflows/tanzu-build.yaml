@@ -34,7 +34,7 @@ jobs:
       - name: Deploy to Amazon ECS
         uses: aws-actions/amazon-ecs-deploy-task-definition@v2
         with:
-          task-definition: ${{ variables.SPRINGAPPV2JSON }}
+          task-definition: $SPRINGAPPV2JSON
           service: sensor
           cluster: deathstar
           wait-for-service-stability: true
