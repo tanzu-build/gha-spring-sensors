@@ -30,3 +30,13 @@ jobs:
         with:
           container_registry: public.ecr.aws/u6w4s2c8/gha-build/gha-spring-sensors
           buildPlanSource: './platform-config.yaml'
+
+      - name: Update kube config
+        run: aws eks update-kubeconfig --name eks-demo --region us-west-2
+
+      - name: Deploy to EKS
+        # env:
+          # ECR_REGISTRY: public.ecr.aws/u6w4s2c8/gha-build/gha-spring-sensors      
+          # IMAGE_TAG: ${{ steps.commit.outputs.short }}
+        run: |
+          kubectl apply -f ./tanzu-build
