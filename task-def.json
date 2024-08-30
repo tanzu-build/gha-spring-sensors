@@ -1,8 +1,8 @@
 {
-    "family": "spring-app-v2",
+    "taskDefinitionArn": "arn:aws:ecs:us-east-1:420760610216:task-definition/sensor:1",
     "containerDefinitions": [
         {
-            "name": "springappv2",
+            "name": "sensor",
             "image": "public.ecr.aws/u6w4s2c8/gha-build/gha-spring-sensors:latest",
             "cpu": 0,
             "portMappings": [
@@ -16,24 +16,63 @@
             ],
             "essential": true,
             "environment": [],
+            "environmentFiles": [],
             "mountPoints": [],
             "volumesFrom": [],
+            "ulimits": [],
             "logConfiguration": {
                 "logDriver": "awslogs",
                 "options": {
-                    "awslogs-group": "/ecs/spring-app-v2",
+                    "awslogs-group": "/ecs/sensor",
                     "mode": "non-blocking",
                     "awslogs-create-group": "true",
                     "max-buffer-size": "25m",
                     "awslogs-region": "us-east-1",
                     "awslogs-stream-prefix": "ecs"
-                }
+                },
+                "secretOptions": []
             },
             "systemControls": []
         }
     ],
+    "family": "sensor",
+    "taskRoleArn": "arn:aws:iam::420760610216:role/ecsTaskExecutionRole",
     "executionRoleArn": "arn:aws:iam::420760610216:role/ecsTaskExecutionRole",
     "networkMode": "awsvpc",
+    "revision": 1,
+    "volumes": [],
+    "status": "ACTIVE",
+    "requiresAttributes": [
+        {
+            "name": "com.amazonaws.ecs.capability.logging-driver.awslogs"
+        },
+        {
+            "name": "ecs.capability.execution-role-awslogs"
+        },
+        {
+            "name": "com.amazonaws.ecs.capability.docker-remote-api.1.19"
+        },
+        {
+            "name": "com.amazonaws.ecs.capability.docker-remote-api.1.28"
+        },
+        {
+            "name": "com.amazonaws.ecs.capability.task-iam-role"
+        },
+        {
+            "name": "com.amazonaws.ecs.capability.docker-remote-api.1.18"
+        },
+        {
+            "name": "ecs.capability.task-eni"
+        },
+        {
+            "name": "com.amazonaws.ecs.capability.docker-remote-api.1.29"
+        }
+    ],
+    "placementConstraints": [],
+    "compatibilities": [
+        "EC2",
+        "FARGATE"
+    ],
     "requiresCompatibilities": [
         "FARGATE"
     ],
@@ -42,5 +81,8 @@
     "runtimePlatform": {
         "cpuArchitecture": "X86_64",
         "operatingSystemFamily": "LINUX"
-    }
+    },
+    "registeredAt": "2024-08-30T16:50:01.182Z",
+    "registeredBy": "arn:aws:sts::420760610216:assumed-role/AWSReservedSSO_vmw-PowerUserAccess_96889540b609064a/raghu.pemmaraju@broadcom.com",
+    "tags": []
 }
