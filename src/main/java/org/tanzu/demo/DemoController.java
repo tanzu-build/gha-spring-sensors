@@ -52,7 +52,7 @@ public class DemoController {
         return new HashMap<>();
     }
 
-    private static final String REPLACEMENT_BANNER_TEXT="Spring Sensors deployed using GHA & ECR - V6 - Latest";
+    private static final String REPLACEMENT_BANNER_TEXT="Spring Sensors deployed using GHA & ECR - V7 - Latest";
 
     @RequestMapping("/refresh")
     public @ResponseBody SensorData refresh() {
