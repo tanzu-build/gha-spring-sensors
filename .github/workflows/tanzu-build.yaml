@@ -40,7 +40,7 @@ jobs:
       #     wait-for-service-stability: true
 
       - name: Update kube config
-        run: aws eks update-kubeconfig --name eks-demo --region us-west-2
+        run: aws eks update-kubeconfig --name rp-demo-eks --region us-west-2
 
       - name: Deploy to EKS
         run: kubectl apply -f ./tanzu-build/apps.tanzu.vmware.com.ContainerApp/spring-sensors/kubernetes-plain/output/app-config 
