@@ -43,7 +43,7 @@ jobs:
         run: aws eks update-kubeconfig --name eks-demo --region us-west-2
 
       - name: Deploy to EKS
-        run: kubectl apply -f ./tanzu-build/apps.tanzu.vmware.com.ContainerApp/gha-spring-sensors/kubernetes-plain/output/app-config 
+        run: kubectl apply -f ./tanzu-build/apps.tanzu.vmware.com.ContainerApp/spring-sensors/kubernetes-plain/output/app-config 
       
       # - name: Commit
       #   run: |
