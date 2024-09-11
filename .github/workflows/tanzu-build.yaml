@@ -31,19 +31,19 @@ jobs:
           container_registry: public.ecr.aws/u6w4s2c8/gha-build/gha-spring-sensors
           buildPlanSource: './platform-config.yaml'
 
-      - name: Deploy to Amazon ECS
-        uses: aws-actions/amazon-ecs-deploy-task-definition@v2
-        with:
-          task-definition: task-def.json
-          service: sensor
-          cluster: deathstar
-          wait-for-service-stability: true
+      # - name: Deploy to Amazon ECS
+      #   uses: aws-actions/amazon-ecs-deploy-task-definition@v2
+      #   with:
+      #     task-definition: task-def.json
+      #     service: sensor
+      #     cluster: deathstar
+      #     wait-for-service-stability: true
 
       - name: Update kube config
         run: aws eks update-kubeconfig --name eks-demo --region us-west-2
 
       - name: Deploy to EKS
-        run: kubectl apply -f ./tanzu-build/apps.tanzu.vmware.com.ContainerApp/gha-spring-sensors/kubernetes-carvel-package/output/containerapp.yml    
+        run: kubectl apply -f ./tanzubuild/apps.tanzu.vmware.com.ContainerApp/gha-spring-sensors/kubernetes-plain/output/app-config 
       
       # - name: Commit
       #   run: |
