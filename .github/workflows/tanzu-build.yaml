@@ -31,7 +31,7 @@ jobs:
       #     container_registry: public.ecr.aws/u6w4s2c8/gha-build/gha-spring-sensors
       #     buildPlanSource: './platform-config.yaml'
 
-      # - name: Deploy to Amazon ECS
+      # - name: Deploy to Amazon ECS 
       #   uses: aws-actions/amazon-ecs-deploy-task-definition@v2
       #   with:
       #     task-definition: task-def.json
