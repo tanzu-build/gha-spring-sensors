@@ -1,5 +1,5 @@
 {
-    "taskDefinitionArn": "arn:aws:ecs:us-west-2:420760610216:task-definition/sensor:1",
+    "taskDefinitionArn": "arn:aws:ecs:us-east-1:420760610216:task-definition/sensor:1",
     "containerDefinitions": [
         {
             "name": "sensor",
@@ -27,7 +27,7 @@
                     "mode": "non-blocking",
                     "awslogs-create-group": "true",
                     "max-buffer-size": "25m",
-                    "awslogs-region": "us-west-2",
+                    "awslogs-region": "us-east-1",
                     "awslogs-stream-prefix": "ecs"
                 },
                 "secretOptions": []
