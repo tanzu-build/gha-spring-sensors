@@ -31,13 +31,13 @@ jobs:
           container_registry: public.ecr.aws/u6w4s2c8/gha-build/gha-spring-sensors
           buildPlanSource: './platform-config.yaml'
 
-      # - name: Deploy to Amazon ECS 
-      #   uses: aws-actions/amazon-ecs-deploy-task-definition@v2
-      #   with:
-      #     task-definition: task-def.json
-      #     service: sensor
-      #     cluster: deathstar
-      #     wait-for-service-stability: true
+      - name: Deploy to Amazon ECS 
+        uses: aws-actions/amazon-ecs-deploy-task-definition@v2
+        with:
+          task-definition: task-def.json
+          service: sensor
+          cluster: deathstar
+          wait-for-service-stability: true
 
       - name: Update kube config
         run: aws eks update-kubeconfig --name rp-demo-eks --region us-west-2
